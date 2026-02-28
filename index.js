@@ -22,6 +22,7 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// this  will check the problems with the game//
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
@@ -38,12 +39,12 @@ function checkGuess() {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
-
+  // this line 47  has to be change to show high //
   if (guess !== targetNumber) {
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
     } else {
-      tooLowMessage.style.display = '';
+      tooHighMessage.style.display = ''; // change the message to show high//
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
@@ -61,9 +62,11 @@ function checkGuess() {
 
   resetButton.style.display = '';
 }
-
+// in line 68 i make change the code to show the message  and  i add the meessage to show.//
 function hideAllMessages() {
-  for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
+  const messages = document.getElementsByClassName('message');
+  for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
+    console.log(messages[elementIndex]);
     messages[elementIndex].style.display = 'none';
   }
 }
